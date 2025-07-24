@@ -3,7 +3,34 @@ This is a full-stack machine learning web application that predicts EMI loan eli
 The frontend is built using React, and the backend uses Flask .
 This project includes machine learning models trained from scratch using  dataset taken from Kaggle to predict loan eligibility.
 
--lock.json
+LoanPredictionProject/
+├── Backend/
+│   ├── models/
+│   │   ├── class_model.pkl
+│   │   └── reg_model.pkl
+│   ├── app.py
+│   ├── train_model.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── App.test.js
+│   │   ├── Formpage.js
+│   │   ├── Homepage.js
+│   │   ├── index.js
+│   │   ├── logo.png
+│   │   ├── Form.css
+│   │   ├── Home.css
+│   │   ├── index.css
+│   │   └── reportWebVitals.js
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   └── README.md
 
 🚀 Features
 Predict loan approval using machine learning
