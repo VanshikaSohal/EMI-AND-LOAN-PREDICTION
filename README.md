@@ -84,5 +84,5 @@ These are located at the bottom-right corner of the homepage.
 
 🙋‍♀️ Author
 Vanshika Sohal
-LinkedIn • GitHub • vanshika07sohal@gmail.com
+
 
