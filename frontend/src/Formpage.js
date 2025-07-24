@@ -32,7 +32,7 @@ function Formpage({ setResult, result, setPage }) {
   }
 
   try {    
-    const response = await fetch('https://emi-and-loan-prediction-px7v.onrender.com', {
+    const response = await fetch('https://emi-and-loan-prediction-px7v.onrender/predict.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ formData }),
