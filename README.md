@@ -32,6 +32,7 @@ LoanPredictionProject/
 │   ├── package.json
 │   └── README.md
 
+
 🚀 Features
 Predict loan approval using machine learning
 
