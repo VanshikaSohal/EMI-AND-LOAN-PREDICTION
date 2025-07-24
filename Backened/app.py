@@ -6,6 +6,12 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Correct paths to models
+reg_model_path = os.path.join(BASE_DIR, 'models', 'reg_model.pkl')
+class_model_path = os.path.join(BASE_DIR, 'models', 'class_model.pkl')
 # Load classification model
 class_model = joblib.load("models/class_model.pkl")
 reg_model = joblib.load("models/reg_model.pkl")
