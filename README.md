@@ -27,10 +27,12 @@ LoanPredictionProject/
 │   │   ├── Home.css
 │   │   ├── index.css
 │   │   └── reportWebVitals.js
-│   ├── .gitignore
+│   ├── .gitignore 
 │   ├── package-lock.json
 │   ├── package.json
-│   └── README.md
+│
+├── README.md 
+
 
 
 🚀 Features
