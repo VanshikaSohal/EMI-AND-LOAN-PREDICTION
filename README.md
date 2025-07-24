@@ -47,7 +47,7 @@ Input validation for form fields
 ⚙️ Setup Instructions
 
 1. Clone the Repository
-git clone https://github.com/your-username/emi-loan-prediction-app.git
+git clone https://github.com/VanshikaSohal/EMI-AND-LOAN-PREDICTION.git
 cd emi-loan-prediction-app
 
 2. Backend Setup (Flask)
