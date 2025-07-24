@@ -1,17 +1,16 @@
-import React ,{useState} from 'react';
+import React, { useState } from 'react';
 import Homepage from './Homepage';
 import Formpage from './Formpage';
-import Result from './Result';
+
 function App() {
-  const [page, setPage] = useState('home');
-  const [result, setResult] = useState('');
+  const[page,setPage]=useState('home');
+  const [result, setResult] = useState(null);
 
   return (
     <div>
       {page === 'home' && <Homepage setPage={setPage} />}
-      {page === 'form' && <Formpage setPage={setPage} setResult={setResult} />}
-      {page === 'result' && <Result setPage={setPage} result={result} />}
-    </div>
+      {page === 'form' && <Formpage setPage={setPage} setResult={setResult} result={result} />}
+      </div>
   );
 }
 

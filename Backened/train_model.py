@@ -11,7 +11,8 @@ import os
 
 
 df = pd.read_csv("dataset/loan-train.csv")  
-df.dropna(inplace=True)#Removes rows with NaN values to avoid model training errors
+#Removes rows with NaN values to avoid model training errors
+df.dropna(inplace=True)
 
 df["EMI"] = (df["LoanAmount"] * 1000) / df["Loan_Amount_Term"]
 
@@ -50,7 +51,6 @@ class_model.fit(X_train_class, y_train_class)
 
 y_pred_class = class_model.predict(X_test_class)
 print("Classification Accuracy:", accuracy_score(y_test_class, y_pred_class))
-
 
 # Create the directory if not exists
 save_dir = "backened/models"

@@ -1,10 +1,11 @@
-// Homepage.js
+
 import React from 'react';
-import './App.css'; // If specific styles are in a separate CSS, import that instead
-import heroImage from './logo.png'; // Ensure logo.png is in src folder or update path
+import heroImage from './logo.png'; 
+import './Home.css';
 
 const Homepage = ({ setPage }) => {
-  return (
+
+   return (
     <div className="homepage">
       <div className="left">
         <h1 className="main-title1">EMI LOAN</h1>
@@ -20,6 +21,18 @@ const Homepage = ({ setPage }) => {
       <div className="right">
         <img src={heroImage} alt="Logo" className="hero-image" />
       </div>
+      <div className="links">
+  <a href="mailto:vanshika07sohal@gmail.com" aria-label="Email">
+    <i className="fas fa-envelope"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/vanshika-sohal-97066a323/" aria-label="LinkedIn">
+    <i className="fab fa-linkedin-in"></i>
+  </a>
+  <a href="https://github.com/VanshikaSohal" target="_blank" aria-label="GitHub" rel="noreferrer">
+    <i className="fab fa-github"></i>
+  </a>
+</div>
+
     </div>
   );
 };

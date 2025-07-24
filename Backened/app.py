@@ -1,36 +1,48 @@
 from flask import Flask, request, jsonify
 import joblib
-import numpy as np
+import pandas as pd
 from flask_cors import CORS
-from sklearn.linear_model import LinearRegression
 
 app = Flask(__name__)
-CORS(app)#CORS allows frontend to talk to backened
+CORS(app)
 
-# Load trained models
-reg_model = joblib.load("models/reg_model.pkl")
-class_model = joblib.load("models/class_model.pkl")
+# Load classification model
+class_model = joblib.load("Backened/models/class_model.pkl")
 
+# Mapping function to encode categorical fields
+def preprocess_input(form):
+    return {
+        "ApplicantIncome": form["applicantincome"],
+        "CoapplicantIncome": form["coapplicantincome"],
+        "LoanAmount": form["loanamount"],
+        "Loan_Amount_Term": form["loan_amount_term"],
+        "Credit_History": form["credit_history"],
+        "EMI": form["emi"] if "emi" in form else 0  
+    }
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No input data received'}), 400
 
-    model_type = data.get('model_type')  # either "regression" or "classification"
-    input_features = np.array(data['features']).reshape(1, -1)
+        form_data = data['formData']
+        processed_data = preprocess_input(form_data)
+        input_df = pd.DataFrame([processed_data])
 
-    if model_type == 'regression':
-        prediction = reg_model.predict(input_features)
-        return jsonify({'prediction': prediction[0].item()})
-    
-    elif model_type == 'classification':
-        prediction = class_model.predict(input_features)
-        result = "Loan Approved" if prediction[0] == 1 else "Loan Rejected"
+        prediction = class_model.predict(input_df)[0]
+        result = "Loan Approved" if prediction == 1 else "Loan Rejected"
+
         return jsonify({'prediction': result})
-    
-    else:
-        return jsonify({'error': 'Invalid model type'}), 400
 
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/')
+def home():
+    return "Flask backend is running!"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
