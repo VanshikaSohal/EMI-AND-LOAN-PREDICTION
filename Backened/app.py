@@ -7,7 +7,9 @@ app = Flask(__name__)
 CORS(app)
 
 # Load classification model
-class_model = joblib.load("Backened/models/class_model.pkl")
+class_model = joblib.load("backened/models/class_model.pkl")
+reg_model = joblib.load("backened/models/reg_model.pkl")
+
 
 # Mapping function to encode categorical fields
 def preprocess_input(form):

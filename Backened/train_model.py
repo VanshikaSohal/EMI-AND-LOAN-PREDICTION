@@ -53,7 +53,7 @@ y_pred_class = class_model.predict(X_test_class)
 print("Classification Accuracy:", accuracy_score(y_test_class, y_pred_class))
 
 # Create the directory if not exists
-save_dir = "backened/models"
+save_dir = "Backened/models"
 os.makedirs(save_dir, exist_ok=True)
 
 #Paths to save the model
