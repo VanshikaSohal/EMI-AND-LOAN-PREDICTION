@@ -36,7 +36,7 @@ def predict():
         if not data:
             return jsonify({'error': 'No input data received'}), 400
 
-        form_data = data['formData']
+        form_data = data
         processed_data = preprocess_input(form_data)
         input_df = pd.DataFrame([processed_data])
 
