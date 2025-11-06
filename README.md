@@ -68,7 +68,7 @@ npm start
 The frontend runs on http://localhost:3000
 
 DEPLOYED PROJECT LINK:
-https://emi-and-loan-prediction-4qva.onrender.com
+https://lnkd.in/gAY7n4eh
 
 Ensure CORS is enabled in your Flask backend to allow communication.
 
