@@ -59,13 +59,12 @@ python -m venv venv
 source venv/bin/activate      # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
-The backend runs on http://127.0.0.1:5000/
+Backend: https://emi-and-loan-prediction-4qva.onrender.com/
 
 3. Frontend Setup (React)
 cd frontend
 npm install
 npm start
-The frontend runs on http://localhost:3000
 
 DEPLOYED PROJECT LINK:
 https://lnkd.in/gAY7n4eh
