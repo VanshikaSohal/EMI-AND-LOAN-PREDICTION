@@ -3,59 +3,41 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import mean_squared_error, accuracy_score, r2_score
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.metrics import mean_squared_error, accuracy_score
 from sklearn.preprocessing import StandardScaler
 import joblib
 import os
 
-# Load dataset
-df = pd.read_csv("dataset/loan-train.csv")
 
-# Remove missing values
+df = pd.read_csv("dataset/loan-train.csv")  
+#Removes rows with NaN values to avoid model training errors
 df.dropna(inplace=True)
 
-# Feature Engineering (EMI calculation)
 df["EMI"] = (df["LoanAmount"] * 1000) / df["Loan_Amount_Term"]
 
-# Encode categorical columns
+#ML models cannot directly work on strings so convert them to numbers
 cat_cols = ["Gender", "Married", "Education", "Self_Employed", "Property_Area", "Loan_Status"]
 le = LabelEncoder()
 for col in cat_cols:
     df[col] = le.fit_transform(df[col])
 
-# REGRESSION (EMI Prediction) 
+#Regression part
 reg_features = ["ApplicantIncome", "CoapplicantIncome", "Loan_Amount_Term", "Credit_History"]
 X_reg = df[reg_features]
 y_reg = df["EMI"]
 
-X_train_reg, X_test_reg, y_train_reg, y_test_reg = train_test_split(
-    X_reg, y_reg, test_size=0.2, random_state=42
-)
+X_train_reg, X_test_reg, y_train_reg, y_test_reg = train_test_split(X_reg, y_reg, test_size=0.2, random_state=42)
 
-# Scaling
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train_reg)
 X_test_scaled = scaler.transform(X_test_reg)
 
-# Train model
-reg_model = LinearRegression()
-reg_model.fit(X_train_scaled, y_train_reg)
+reg_model=LinearRegression()
+reg_model.fit(X_train_scaled,y_train_reg)
+y_pred=reg_model.predict(X_test_scaled)
 
-# Predictions
-y_pred_reg = reg_model.predict(X_test_scaled)
-
-# Regression Metrics
-mse = mean_squared_error(y_test_reg, y_pred_reg)
-rmse = np.sqrt(mse)
-r2 = r2_score(y_test_reg, y_pred_reg)
-
-print("----- Regression Metrics -----")
-print("MSE:", mse)
-print("RMSE:", rmse)
-print("R2 Score:", r2)
-
-# CLASSIFICATION (Loan Approval) 
+#Classification part
 class_features = ["ApplicantIncome", "CoapplicantIncome", "LoanAmount", "Loan_Amount_Term", "Credit_History", "EMI"]
 X_class = df[class_features]
 y_class = df["Loan_Status"]
@@ -64,35 +46,31 @@ X_train_class, X_test_class, y_train_class, y_test_class = train_test_split(
     X_class, y_class, test_size=0.2, random_state=42
 )
 
-# Train model
 class_model = RandomForestClassifier()
 class_model.fit(X_train_class, y_train_class)
 
-# Predictions
 y_pred_class = class_model.predict(X_test_class)
+print("Classification Accuracy:", accuracy_score(y_test_class, y_pred_class))
 
-# Classification Metric
-accuracy = accuracy_score(y_test_class, y_pred_class)
-
-print("\n----- Classification Metrics -----")
-print("Accuracy:", accuracy)
-
-save_dir = "Backend/models"  
+# Create the directory if not exists
+save_dir = "Backened/models"
 os.makedirs(save_dir, exist_ok=True)
 
+#Paths to save the model
 reg_model_path = os.path.join(save_dir, "reg_model.pkl")
 class_model_path = os.path.join(save_dir, "class_model.pkl")
 
-# Save regression model
+#Save regression model
 try:
     joblib.dump(reg_model, reg_model_path)
-    print(f"\nRegression model saved at: {reg_model_path}")
+    print(f" Regression model saved at: {reg_model_path}")
 except Exception as e:
-    print("Failed to save regression model:", e)
+    print(" Failed to save regression model:", e)
 
-# Save classification model
+#Save classification model
 try:
     joblib.dump(class_model, class_model_path)
     print(f"Classification model saved at: {class_model_path}")
 except Exception as e:
-    print("Failed to save classification model:", e)
+    print(" Failed to save classification model:", e)
+

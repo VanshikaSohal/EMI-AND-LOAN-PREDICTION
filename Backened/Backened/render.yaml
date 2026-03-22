@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: loan-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    buildFilter:
+      paths:
+        - Backened/**

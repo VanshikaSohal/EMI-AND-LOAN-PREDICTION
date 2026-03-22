@@ -1,0 +1,89 @@
+/* Set the full screen and black background */
+.body{
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Left side styling */
+.left {
+  flex: 1;  
+  margin-top: 145px; /* slightly up */
+  margin-left: 170px; /* slightly right */
+}
+
+.main-title1, .main-title2 {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.main-title2 {
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Button styling */
+.start-button {
+  padding: 12px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: #b1fdf6;
+  padding:20px;
+}
+
+/* Right side image styling */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top:80px;
+}
+
+.hero-image {
+  max-width: 100%;
+  max-height: 1000px;
+  margin-right: 70px;
+  object-fit: contain;
+}
+.links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 700px;
+}
+
+.links a {
+  color: #ffffff;
+  font-size: 25px;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #0073e6;
+}
