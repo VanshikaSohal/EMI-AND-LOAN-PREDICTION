@@ -67,7 +67,7 @@ npm install
 npm start
 
 DEPLOYED PROJECT LINK:
-https://lnkd.in/gAY7n4eh
+https://beamish-toffee-3a4829.netlify.app/
 
 Ensure CORS is enabled in your Flask backend to allow communication.
 
