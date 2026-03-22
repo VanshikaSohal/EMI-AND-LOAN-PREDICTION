@@ -59,13 +59,15 @@ python -m venv venv
 source venv/bin/activate      # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
-The backend runs on http://127.0.0.1:5000/
+Backend: https://emi-and-loan-prediction-4qva.onrender.com/
 
 3. Frontend Setup (React)
 cd frontend
 npm install
 npm start
-The frontend runs on http://localhost:3000
+
+DEPLOYED PROJECT LINK:
+https://beamish-toffee-3a4829.netlify.app/
 
 Ensure CORS is enabled in your Flask backend to allow communication.
 
@@ -75,6 +77,10 @@ cd Backend
 python train_model.py
 This script loads the dataset, trains a classification model, and saves it as .pkl files in the models/ directory.
 
+##  Features
+- Loan Eligibility Prediction (~81% accuracy)
+- EMI Calculation using ML
+- Real-time user input form
 🔗 Social Links
 Homepage displays:
 
