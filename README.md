@@ -77,6 +77,10 @@ cd Backend
 python train_model.py
 This script loads the dataset, trains a classification model, and saves it as .pkl files in the models/ directory.
 
+##  Features
+- Loan Eligibility Prediction (~81% accuracy)
+- EMI Calculation using ML
+- Real-time user input form
 🔗 Social Links
 Homepage displays:
 
