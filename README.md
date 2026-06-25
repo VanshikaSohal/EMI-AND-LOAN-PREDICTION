@@ -1,4 +1,4 @@
-💰 EMI Loan Prediction App
+**EMI Loan Prediction App**
 This is a full-stack machine learning web application that predicts EMI loan eligibility based on user input. 
 The frontend is built using React, and the backend uses Flask .
 This project includes machine learning models trained from scratch using  dataset taken from Kaggle to predict loan eligibility.
@@ -35,7 +35,7 @@ LoanPredictionProject/
 
 
 
-🚀 Features
+** Features**
 Predict loan approval using machine learning
 
 Interactive, responsive frontend with React
@@ -47,7 +47,7 @@ Trained classification and regression models
 Input validation for form fields
 
 
-⚙️ Setup Instructions
+**Setup Instructions**
 
 1. Clone the Repository
 git clone https://github.com/VanshikaSohal/EMI-AND-LOAN-PREDICTION.git
@@ -71,29 +71,29 @@ https://beamish-toffee-3a4829.netlify.app/
 
 Ensure CORS is enabled in your Flask backend to allow communication.
 
-🧠 Model Training
+**Model Training**
 To retrain or update models:
 cd Backend
 python train_model.py
 This script loads the dataset, trains a classification model, and saves it as .pkl files in the models/ directory.
 
-##  Features
+**Features**
 - Loan Eligibility Prediction (~81% accuracy)
 - EMI Calculation using ML
 - Real-time user input form
-🔗 Social Links
+  **Social Links**
 Homepage displays:
 
-✉️ Email
+** Email**
 
-💼 LinkedIn
+**LinkedIn**
 
-💻 GitHub
+** GitHub**
 
 These are located at the bottom-right corner of the homepage.
 
 
-🙋‍♀️ Author
+** Author**
 Vanshika Sohal
 
 
